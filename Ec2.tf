@@ -1,5 +1,5 @@
-
 # Create an EC2 instance
+
 resource "aws_instance" "xcel1" {
   ami           = "ami-0efa651876de2a5ce"
   instance_type = "t2.micro"
@@ -10,7 +10,7 @@ resource "aws_instance" "xcel1" {
   subnet_id     = aws_subnet.public_subnet_1a.id
 
   tags = {
-    Name = "xcel1"
+    Name = "Ec2 instance 1"
   }
 } 
 
@@ -18,9 +18,12 @@ resource "aws_instance" "xcel2" {
   ami           = "ami-0efa651876de2a5ce"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet_1b.id
-  key_name      = "xcel2pair"
+  key_name      = "xcel-key"
   vpc_security_group_ids = [aws_security_group.my_security_group.id, aws_security_group. allow_ssh.id]
-
+  
+tags = {
+    Name = "Ec2 instance 2"
+  }
 }
 
 # resource "aws_lb" "_lb" {
